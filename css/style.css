@@ -18,7 +18,7 @@ p{
     font-weight: 500;
     line-height: 24px;
 }
-button, input{
+button{
     padding: 10px;
     width: 120px;
     font-size: 14px;
@@ -30,12 +30,26 @@ button, input{
     margin-bottom: 20px;
     cursor: pointer;
 }
-input:hover{
+button:hover{
     background: rgb(0, 79, 16);
 }
-form{
+.firstForm{
     display: flex;
     justify-content: space-between;
+}
+.secForm{
+    display: block;
+}
+label{
+    font-size: 18px;
+    font-weight: 500;    
+}
+.secForm input{
+    padding: 10px;
+    margin: 0 20px;
+}
+.secForm button{
+    width: 220px;
 }
 .firstTask{
     font-size: 22px;

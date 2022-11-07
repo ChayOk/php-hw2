@@ -11,7 +11,7 @@
     <div class="task">
         <h2>1. Если переменная $a пустая, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта при $a, равном 1, 3, -3, 0, null, true, '', '0'.</h2> 
 
-        <form method="GET">
+        <form method="GET" class="firstForm">
             <button name="pressButton" value="1">$a = 1</button>
             <button name="pressButton" value="3">$a = 3</button>
             <button name="pressButton" value="-3">$a = -3</button>
@@ -21,7 +21,7 @@
             <button name="pressButton" value="''">$a = ''</button>
             <button name="pressButton" value="'0'">$a = '0'</button>
         </form>
-        <?php
+        <?php           
             $nullNum = 0;
             
             $pressButton = $_GET['pressButton'];
@@ -216,15 +216,29 @@
             6. Разработайте программу, которая определяла количество прошедших часов по введенным пользователем градусах. Введенное число может быть от 0 до 360.
         </h2>
         
+        <form method="GET" class="secForm">
+            <label>
+                Введите градус:
+                <input type="number" name="degree" min="0">
+            </label>
+            <button type="submit" name="butTime">Определить время</button>
+        </form>
+        
         <?php
-            $num = '12345';
-            $sum = 0;
-
-            for ($i = 0; $i < strlen($num); $i++) { 
-                $sum += $num[$i];
-            }
+        if (isset($_GET['butTime']) && $_GET['degree'] !== '') { //проверяем введенное поле на пустоту
+            $degree = $_GET['degree'];
+            $hour = floor(12 / 360 * $degree); //floor округляет в меньшую сторону
             
-            echo "<p>Число: {$num} <br> Сумма чисел: {$sum}</p>";
+            if ($hour == 1) {
+                echo "<p>Прошел {$hour} час!</p>";
+            } else if($hour > 1 && $hour < 5){
+                echo "<p>Прошло {$hour} часа!</p>";
+            } else {
+                echo "<p>Прошло {$hour} часов!</p>";
+            }            
+        } else{
+            echo "<p>Вы ничего не ввели!</p>";
+        }
         ?>
     </div>
     <div class="task">
